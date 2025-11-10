@@ -1,73 +1,75 @@
-# React + TypeScript + Vite
+# Dupla - Dobble Clone
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Ein Dobble (Spot It!) Klon-Spiel, gebaut mit React, TypeScript und Vite.
 
-Currently, two official plugins are available:
+## 🎮 Spielen
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Live-Demo:** [https://krisgilicze.github.io/dupla/](https://krisgilicze.github.io/dupla/)
 
-## React Compiler
+## 🎯 Spielprinzip
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Dupla ist ein Reaktionsspiel basierend auf dem beliebten Kartenspiel Dobble. Finde das gemeinsame Symbol zwischen deiner Karte und der Zielkarte so schnell wie möglich!
 
-## Expanding the ESLint configuration
+### Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- ⏱️ **20 Sekunden Countdown** - Die Zeit startet beim ersten Klick
+- ✅ **+1 Sekunde Bonus** bei richtiger Antwort
+- 🎯 **+1 Punkt** für jedes richtig gefundene Symbol
+- ❌ **-2 Punkte Strafe** für falsche Antworten (außer beim ersten Versuch)
+- 🏆 **Bestenliste** mit Top 10 Scores
+- 🎨 **Farbige Symbole** mit visuellen Animationen
+- 🔊 **Sound-Effekte** (aktivierbar/deaktivierbar)
+- 👤 **Anpassbarer Spielername**
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Spielregeln
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+1. Du siehst zwei Karten: deine eigene (oben) und die Zielkarte (unten)
+2. Jede Kartenpaarung hat **genau ein gemeinsames Symbol**
+3. Klicke auf das gemeinsame Symbol auf der Zielkarte
+4. Du hast 20 Sekunden Zeit - richtige Antworten geben +1 Sekunde
+5. Game Over bei Score unter 0 oder wenn die Zeit abläuft
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🔬 Mathematische Grundlagen
+
+Das Spiel nutzt eine **Projektionsebene der Ordnung n=2** (Fano-Ebene):
+
+- **7 Symbole** insgesamt
+- **7 Karten** mit je **3 Symbolen**
+- Jede Kartenpaarung hat **genau 1 gemeinsames Symbol**
+
+Dies basiert auf der Formel: `n² + n + 1 = 2² + 2 + 1 = 7`
+
+## 🛠️ Technologie-Stack
+
+- **React 18** - UI-Framework
+- **TypeScript** - Type Safety
+- **Vite** - Build Tool & Dev Server
+- **React Icons** - Symbol-Icons
+- **Web Audio API** - Sound-Generierung
+- **GitHub Pages** - Hosting
+- **GitHub Actions** - Automatisches Deployment
+
+## 🚀 Lokale Entwicklung
+
+```bash
+# Dependencies installieren
+npm install
+
+# Dev-Server starten
+npm run dev
+
+# Production Build
+npm run build
+
+# Build lokal testen
+npm run preview
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 📦 Deployment
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Das Projekt verwendet GitHub Actions für automatisches Deployment auf GitHub Pages. Bei jedem Push auf den `main` Branch wird die App automatisch gebaut und deployed.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 📄 Lizenz
+
+MIT
+
