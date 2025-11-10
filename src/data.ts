@@ -1,14 +1,10 @@
 import type {Card} from './types';
 import {SYMBOLS} from './types';
+import {generateDobbleCards} from './utils';
 
-// Beispielkarten mit je 3 Symbolen
-// Gemeinsames Symbol: Kreis
-export const card1: Card = {
-    id: 1,
-    symbols: [SYMBOLS.CIRCLE, SYMBOLS.TRIANGLE, SYMBOLS.SQUARE]
-};
+// Generiere alle gültigen Dobble-Karten aus der Symbolmenge
+export const allCards: Card[] = generateDobbleCards(SYMBOLS);
 
-export const card2: Card = {
-    id: 2,
-    symbols: [SYMBOLS.CIRCLE, SYMBOLS.STAR, SYMBOLS.HEART]
-};
+// Für Abwärtskompatibilität: Erste zwei Karten
+export const card1 = allCards[0];
+export const card2 = allCards[1];
