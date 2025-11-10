@@ -160,7 +160,9 @@ function App() {
                 date: new Date().toISOString().split('T')[0]
             };
             setLeaderboard((prev) =>
-                [...prev, newEntry].sort((a, b) => b.score - a.score).slice(0, 10)
+                [...prev, newEntry]
+                    .sort((a, b) => b.score - a.score)
+                    .slice(0, 10)
             );
         }
 
@@ -214,7 +216,13 @@ function App() {
                 >
                     ⚙️ Einstellungen
                 </h3>
-                <div style={{display: 'flex', flexDirection: 'column', gap: '1rem'}}>
+                <div
+                    style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: '1rem'
+                    }}
+                >
                     <label
                         style={{
                             display: 'flex',
@@ -228,7 +236,9 @@ function App() {
                         <input
                             type="text"
                             value={playerName}
-                            onChange={(e) => setPlayerName(e.target.value || 'Guest')}
+                            onChange={(e) =>
+                                setPlayerName(e.target.value || 'Guest')
+                            }
                             placeholder="Guest"
                             style={{
                                 padding: '0.5rem',
@@ -305,23 +315,26 @@ function App() {
                     )}
 
                     {/* Glückwunsch bei Platz 1 */}
-                    {score > 0 && leaderboard.length > 0 && score >= leaderboard[0].score && (
-                        <div
-                            style={{
-                                fontSize: '1.3rem',
-                                color: '#ffaa00',
-                                fontWeight: 'bold',
-                                textAlign: 'center',
-                                padding: '1rem',
-                                backgroundColor: 'rgba(255, 170, 0, 0.1)',
-                                borderRadius: '8px',
-                                border: '2px solid #ffaa00',
-                                animation: 'fadeIn 0.5s'
-                            }}
-                        >
-                            🎉 Glückwunsch! Du hast den Architekten geschlagen! 🎉
-                        </div>
-                    )}
+                    {score > 0 &&
+                        leaderboard.length > 0 &&
+                        score >= leaderboard[0].score && (
+                            <div
+                                style={{
+                                    fontSize: '1.3rem',
+                                    color: '#ffaa00',
+                                    fontWeight: 'bold',
+                                    textAlign: 'center',
+                                    padding: '1rem',
+                                    backgroundColor: 'rgba(255, 170, 0, 0.1)',
+                                    borderRadius: '8px',
+                                    border: '2px solid #ffaa00',
+                                    animation: 'fadeIn 0.5s'
+                                }}
+                            >
+                                🎉 Glückwunsch! Du hast den Architekten
+                                geschlagen! 🎉
+                            </div>
+                        )}
 
                     {/* Leaderboard */}
                     <div
@@ -343,7 +356,13 @@ function App() {
                         >
                             🏆 Bestenliste
                         </h2>
-                        <div style={{display: 'flex', flexDirection: 'column', gap: '0.5rem'}}>
+                        <div
+                            style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                gap: '0.5rem'
+                            }}
+                        >
                             {leaderboard.map((entry, index) => (
                                 <div
                                     key={index}
@@ -352,17 +371,25 @@ function App() {
                                         justifyContent: 'space-between',
                                         padding: '0.75rem',
                                         backgroundColor:
-                                            entry.name === playerName && entry.score === score
+                                            entry.name === playerName &&
+                                            entry.score === score
                                                 ? 'rgba(100, 108, 255, 0.2)'
                                                 : '#2a2a2a',
                                         borderRadius: '6px',
                                         border:
-                                            entry.name === playerName && entry.score === score
+                                            entry.name === playerName &&
+                                            entry.score === score
                                                 ? '2px solid #646cff'
                                                 : 'none'
                                     }}
                                 >
-                                    <div style={{display: 'flex', gap: '1rem', alignItems: 'center'}}>
+                                    <div
+                                        style={{
+                                            display: 'flex',
+                                            gap: '1rem',
+                                            alignItems: 'center'
+                                        }}
+                                    >
                                         <span
                                             style={{
                                                 fontSize: '1.2rem',
@@ -373,10 +400,23 @@ function App() {
                                         >
                                             {index + 1}.
                                         </span>
-                                        <span style={{fontWeight: 'bold'}}>{entry.name}</span>
+                                        <span style={{fontWeight: 'bold'}}>
+                                            {entry.name}
+                                        </span>
                                     </div>
-                                    <div style={{display: 'flex', gap: '1rem', alignItems: 'center'}}>
-                                        <span style={{color: '#888', fontSize: '0.9rem'}}>
+                                    <div
+                                        style={{
+                                            display: 'flex',
+                                            gap: '1rem',
+                                            alignItems: 'center'
+                                        }}
+                                    >
+                                        <span
+                                            style={{
+                                                color: '#888',
+                                                fontSize: '0.9rem'
+                                            }}
+                                        >
                                             {entry.date}
                                         </span>
                                         <span
@@ -635,7 +675,8 @@ function App() {
                                 <strong style={{color: '#22c55e'}}>
                                     Richtig:
                                 </strong>{' '}
-                                +1 Punkt, +1 Sekunde Zeit, neue Zielkarte erscheint
+                                +1 Punkt, +1 Sekunde Zeit, neue Zielkarte
+                                erscheint
                             </li>
                             <li>
                                 <strong style={{color: '#f44336'}}>
@@ -647,7 +688,8 @@ function App() {
                                 <strong style={{color: '#f44336'}}>
                                     Game Over:
                                 </strong>{' '}
-                                Wenn der Score unter 0 fällt oder die Zeit abläuft
+                                Wenn der Score unter 0 fällt oder die Zeit
+                                abläuft
                             </li>
                         </ul>
 

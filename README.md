@@ -12,14 +12,14 @@ Dupla ist ein Reaktionsspiel basierend auf dem beliebten Kartenspiel Dobble. Fin
 
 ### Features
 
-- ⏱️ **20 Sekunden Countdown** - Die Zeit startet beim ersten Klick
-- ✅ **+1 Sekunde Bonus** bei richtiger Antwort
-- 🎯 **+1 Punkt** für jedes richtig gefundene Symbol
-- ❌ **-2 Punkte Strafe** für falsche Antworten (außer beim ersten Versuch)
-- 🏆 **Bestenliste** mit Top 10 Scores
-- 🎨 **Farbige Symbole** mit visuellen Animationen
-- 🔊 **Sound-Effekte** (aktivierbar/deaktivierbar)
-- 👤 **Anpassbarer Spielername**
+-   ⏱️ **20 Sekunden Countdown** - Die Zeit startet beim ersten Klick
+-   ✅ **+1 Sekunde Bonus** bei richtiger Antwort
+-   🎯 **+1 Punkt** für jedes richtig gefundene Symbol
+-   ❌ **-2 Punkte Strafe** für falsche Antworten (außer beim ersten Versuch)
+-   🏆 **Bestenliste** mit Top 10 Scores
+-   🎨 **Farbige Symbole** mit visuellen Animationen
+-   🔊 **Sound-Effekte** (aktivierbar/deaktivierbar)
+-   👤 **Anpassbarer Spielername**
 
 ### Spielregeln
 
@@ -33,21 +33,21 @@ Dupla ist ein Reaktionsspiel basierend auf dem beliebten Kartenspiel Dobble. Fin
 
 Das Spiel nutzt eine **Projektionsebene der Ordnung n=2** (Fano-Ebene):
 
-- **7 Symbole** insgesamt
-- **7 Karten** mit je **3 Symbolen**
-- Jede Kartenpaarung hat **genau 1 gemeinsames Symbol**
+-   **7 Symbole** insgesamt
+-   **7 Karten** mit je **3 Symbolen**
+-   Jede Kartenpaarung hat **genau 1 gemeinsames Symbol**
 
 Dies basiert auf der Formel: `n² + n + 1 = 2² + 2 + 1 = 7`
 
 ## 🛠️ Technologie-Stack
 
-- **React 18** - UI-Framework
-- **TypeScript** - Type Safety
-- **Vite** - Build Tool & Dev Server
-- **React Icons** - Symbol-Icons
-- **Web Audio API** - Sound-Generierung
-- **GitHub Pages** - Hosting
-- **GitHub Actions** - Automatisches Deployment
+-   **React 18** - UI-Framework
+-   **TypeScript** - Type Safety
+-   **Vite** - Build Tool & Dev Server
+-   **React Icons** - Symbol-Icons
+-   **Web Audio API** - Sound-Generierung
+-   **GitHub Pages** - Hosting
+-   **GitHub Actions** - Automatisches Deployment
 
 ## 🚀 Lokale Entwicklung
 
@@ -72,4 +72,3 @@ Das Projekt verwendet GitHub Actions für automatisches Deployment auf GitHub Pa
 ## 📄 Lizenz
 
 MIT
-
