@@ -470,12 +470,10 @@ function App() {
                 </div>
             )}
 
-            {/* Score Display - Fixed Position */}
+            {/* Score Display - Responsive Position */}
             <div
+                className="score-display"
                 style={{
-                    position: 'fixed',
-                    bottom: '2rem',
-                    right: '2rem',
                     backgroundColor: '#1a1a1a',
                     border: '3px solid #646cff',
                     borderRadius: '16px',
