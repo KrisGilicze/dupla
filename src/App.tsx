@@ -1,9 +1,20 @@
 import './App.css';
 import {useState, useEffect} from 'react';
-import type {Symbol, Card as CardType} from './types';
+import type {Symbol, Card as CardType, SymbolDefinition} from './types';
 import {allCards} from './data';
 import {Card} from './components/Card';
-import {getRandomCardPair, getRandomCardExcept} from './utils';
+import {ImageUpload} from './components/ImageUpload';
+import type {UploadedImage} from './components/ImageUpload';
+import {SymbolCountFeedback} from './components/SymbolCountFeedback';
+import {CardGallery} from './components/CardGallery';
+import {CardExport} from './components/CardExport';
+import {
+    getRandomCardPair,
+    getRandomCardExcept,
+    generateDobbleCards
+} from './utils';
+import {imagesToSymbolSet} from './imageConverter';
+import {findBestN} from './projectivePlane';
 import {soundEffects} from './sounds';
 
 interface LeaderboardEntry {
@@ -18,9 +29,22 @@ function App() {
     const [soundEnabled, setSoundEnabled] = useState(true);
     const [playerName, setPlayerName] = useState('Guest');
     const [timeLeft, setTimeLeft] = useState(20);
-    const [ownCard, setOwnCard] = useState<CardType>(() => allCards[0]);
+
+    // Custom cards state
+    const [uploadedImages, setUploadedImages] = useState<UploadedImage[]>([]);
+    const [customCards, setCustomCards] = useState<CardType[]>([]);
+    const [customSymbolsMap, setCustomSymbolsMap] = useState<
+        Record<string, SymbolDefinition>
+    >({});
+    const [isPlayingCustom, setIsPlayingCustom] = useState(false);
+
+    // Active card deck (standard or custom)
+    const activeCards =
+        isPlayingCustom && customCards.length > 0 ? customCards : allCards;
+
+    const [ownCard, setOwnCard] = useState<CardType>(() => activeCards[0]);
     const [targetCard, setTargetCard] = useState<CardType>(() =>
-        getRandomCardExcept(allCards, allCards[0])
+        getRandomCardExcept(activeCards, activeCards[0])
     );
     const [flashColor, setFlashColor] = useState<'green' | 'red' | null>(null);
     const [shake, setShake] = useState(false);
@@ -102,7 +126,7 @@ function App() {
 
             // Neue Zielkarte nach Flip-Animation
             setTimeout(() => {
-                setTargetCard(getRandomCardExcept(allCards, ownCard));
+                setTargetCard(getRandomCardExcept(activeCards, ownCard));
                 setFlip(false);
             }, 600);
         } else {
@@ -145,7 +169,7 @@ function App() {
 
             // Neue Zielkarte nach Flip-Animation
             setTimeout(() => {
-                setTargetCard(getRandomCardExcept(allCards, ownCard));
+                setTargetCard(getRandomCardExcept(activeCards, ownCard));
                 setFlip(false);
             }, 600);
         }
@@ -166,6 +190,79 @@ function App() {
             );
         }
 
+        setScore(0);
+        setGuessCount(0);
+        setTimeLeft(20);
+        setTimerStarted(false);
+        setIsGameOver(false);
+        const [newOwn, newTarget] = getRandomCardPair(activeCards);
+        setOwnCard(newOwn);
+        setTargetCard(newTarget);
+        setFlashColor(null);
+        setShake(false);
+        setFlip(false);
+        setScoreAnimation(null);
+    };
+
+    const handleImagesChange = (images: UploadedImage[]) => {
+        setUploadedImages(images);
+        // Clear custom cards when images change
+        setCustomCards([]);
+        setCustomSymbolsMap({});
+    };
+
+    const handleGenerateCards = () => {
+        const result = findBestN(uploadedImages.length);
+        if (!result.exact) {
+            alert(
+                'Ungültige Symbolanzahl! Bitte verwende eine gültige Anzahl.'
+            );
+            return;
+        }
+
+        // Convert images to symbols
+        const symbolSet = imagesToSymbolSet(uploadedImages);
+        setCustomSymbolsMap(symbolSet);
+
+        // Generate cards
+        const cards = generateDobbleCards(symbolSet);
+        setCustomCards(cards);
+    };
+
+    const handleImportCards = (
+        importedCards: CardType[],
+        importedSymbols: Record<string, SymbolDefinition>
+    ) => {
+        setCustomCards(importedCards);
+        setCustomSymbolsMap(importedSymbols);
+        // Clear uploaded images since we're using imported data
+        setUploadedImages([]);
+    };
+
+    const handlePlayWithCustomCards = () => {
+        if (customCards.length === 0) {
+            alert('Bitte generiere zuerst Karten!');
+            return;
+        }
+        setIsPlayingCustom(true);
+        // Restart game with custom cards
+        setScore(0);
+        setGuessCount(0);
+        setTimeLeft(20);
+        setTimerStarted(false);
+        setIsGameOver(false);
+        const [newOwn, newTarget] = getRandomCardPair(customCards);
+        setOwnCard(newOwn);
+        setTargetCard(newTarget);
+        setFlashColor(null);
+        setShake(false);
+        setFlip(false);
+        setScoreAnimation(null);
+    };
+
+    const handlePlayWithStandardCards = () => {
+        setIsPlayingCustom(false);
+        // Restart game with standard cards
         setScore(0);
         setGuessCount(0);
         setTimeLeft(20);
@@ -194,6 +291,61 @@ function App() {
         >
             <header style={{textAlign: 'center'}}>
                 <h1>Dupla (Dobble Klon)</h1>
+
+                {/* Current Deck Indicator */}
+                {isPlayingCustom && (
+                    <div
+                        style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '12px',
+                            padding: '12px 20px',
+                            backgroundColor: 'rgba(139, 92, 246, 0.2)',
+                            border: '2px solid #8b5cf6',
+                            borderRadius: '12px',
+                            marginTop: '16px'
+                        }}
+                    >
+                        <span style={{fontSize: '20px'}}>🎴</span>
+                        <div>
+                            <div style={{fontWeight: 'bold', color: '#8b5cf6'}}>
+                                Custom Karten aktiv
+                            </div>
+                            <div
+                                style={{
+                                    fontSize: '13px',
+                                    color: 'rgba(255, 255, 255, 0.6)'
+                                }}
+                            >
+                                {customCards.length} Karten mit{' '}
+                                {customCards[0]?.symbols.length || 0} Symbolen
+                            </div>
+                        </div>
+                        <button
+                            onClick={handlePlayWithStandardCards}
+                            style={{
+                                padding: '8px 16px',
+                                fontSize: '14px',
+                                backgroundColor: '#64748b',
+                                color: 'white',
+                                border: 'none',
+                                borderRadius: '6px',
+                                cursor: 'pointer',
+                                fontWeight: 'bold'
+                            }}
+                            onMouseEnter={(e) =>
+                                (e.currentTarget.style.backgroundColor =
+                                    '#475569')
+                            }
+                            onMouseLeave={(e) =>
+                                (e.currentTarget.style.backgroundColor =
+                                    '#64748b')
+                            }
+                        >
+                            Zurück zu Standard
+                        </button>
+                    </div>
+                )}
             </header>
 
             {/* Settings - direkt unter Titel */}
@@ -598,13 +750,13 @@ function App() {
             >
                 {/* Eigene Karte (oben) */}
                 <section style={{textAlign: 'center'}}>
-                    <h2 style={{marginBottom: '1rem'}}>Deine Karte</h2>
+                    {/* <h2 style={{marginBottom: '1rem'}}>Deine Karte</h2> */}
                     <Card card={ownCard} />
                 </section>
 
                 {/* Zielkarte (unten) */}
                 <section style={{textAlign: 'center'}}>
-                    <h2 style={{marginBottom: '1rem'}}>Zielkarte</h2>
+                    {/* <h2 style={{marginBottom: '1rem'}}>Zielkarte</h2> */}
                     <p
                         style={{
                             fontSize: '0.9rem',
@@ -612,7 +764,7 @@ function App() {
                             marginBottom: '1rem'
                         }}
                     >
-                        Klicke auf das gemeinsame Symbol!
+                        Klicke unten auf das gemeinsame Symbol!
                     </p>
                     <Card
                         card={targetCard}
@@ -773,9 +925,133 @@ function App() {
                         </p>
                     </div>
                 </details>
+
+                {/* Symbol Upload Interface */}
+                <div
+                    style={{
+                        marginTop: '3rem',
+                        width: '100%',
+                        maxWidth: '800px'
+                    }}
+                >
+                    <h2 style={{textAlign: 'center', marginBottom: '1rem'}}>
+                        📸 Eigenes Dobble-Spiel erstellen
+                    </h2>
+
+                    <ImageUpload onImagesChange={handleImagesChange} />
+
+                    <SymbolCountFeedback count={uploadedImages.length} />
+
+                    {uploadedImages.length > 0 &&
+                        findBestN(uploadedImages.length).exact && (
+                            <div
+                                style={{textAlign: 'center', marginTop: '16px'}}
+                            >
+                                <button
+                                    onClick={handleGenerateCards}
+                                    style={{
+                                        padding: '16px 32px',
+                                        fontSize: '18px',
+                                        backgroundColor: '#22c55e',
+                                        color: 'white',
+                                        border: 'none',
+                                        borderRadius: '8px',
+                                        cursor: 'pointer',
+                                        fontWeight: 'bold',
+                                        transition: 'background-color 0.3s'
+                                    }}
+                                    onMouseEnter={(e) =>
+                                        (e.currentTarget.style.backgroundColor =
+                                            '#16a34a')
+                                    }
+                                    onMouseLeave={(e) =>
+                                        (e.currentTarget.style.backgroundColor =
+                                            '#22c55e')
+                                    }
+                                >
+                                    🎴 Karten generieren
+                                </button>
+                            </div>
+                        )}
+
+                    {customCards.length > 0 && (
+                        <>
+                            <CardExport
+                                cards={customCards}
+                                symbolsMap={customSymbolsMap}
+                                onImport={handleImportCards}
+                            />
+
+                            <div
+                                style={{textAlign: 'center', marginTop: '24px'}}
+                            >
+                                <button
+                                    onClick={handlePlayWithCustomCards}
+                                    style={{
+                                        padding: '16px 40px',
+                                        fontSize: '20px',
+                                        backgroundColor: '#8b5cf6',
+                                        color: 'white',
+                                        border: 'none',
+                                        borderRadius: '12px',
+                                        cursor: 'pointer',
+                                        fontWeight: 'bold',
+                                        transition: 'all 0.3s',
+                                        boxShadow:
+                                            '0 4px 12px rgba(139, 92, 246, 0.4)'
+                                    }}
+                                    onMouseEnter={(e) => {
+                                        e.currentTarget.style.backgroundColor =
+                                            '#7c3aed';
+                                        e.currentTarget.style.transform =
+                                            'scale(1.05)';
+                                    }}
+                                    onMouseLeave={(e) => {
+                                        e.currentTarget.style.backgroundColor =
+                                            '#8b5cf6';
+                                        e.currentTarget.style.transform =
+                                            'scale(1)';
+                                    }}
+                                >
+                                    🎮 Mit diesen Karten spielen!
+                                </button>
+                            </div>
+
+                            <CardGallery cards={customCards} />
+                        </>
+                    )}
+                </div>
             </footer>
         </div>
     );
 }
 
 export default App;
+
+/* Copyright (c) 2025 Kristof Gilicze */
+
+/** Docs:
+ * n=1: 3 Symbole (3 Karten, 2 Symbole/Karte)
+ * n=2: 7 Symbole (7 Karten, 3 Symbole/Karte)
+ * n=3: 13 Symbole (13 Karten, 4 Symbole/Karte)
+ * n=4: 21 Symbole (21 Karten, 5 Symbole/Karte)
+ * n=5: 31 Symbole (31 Karten, 6 Symbole/Karte)
+ * n=7: 57 Symbole (57 Karten, 8 Symbole/Karte)
+ */
+
+/**
+ * ##### Symbole Grüber
+ * Ingrid, Jörg,         +1
+ * Nele, Philipp,        +3
+ * Britta, Thomas,       +5
+ * Meike, Sönke,         +2
+ * Hendrik, Johanna,     +1
+ * Kerstin, Kristof,     +1
+ * = 12     |           +13
+ * === 25
+ */
+
+/**
+ * Ingrid, Jörg, Nele, Philipp, Britta, Thomas, Meike, Sönke, Hendrik, Johanna, Kerstin, Kristof, Lotte, Matti, Frido, Mika, Emma, Hanna, Juna, Lasse, Lina, Ida, Brösel, Fiete, Cleo
+ * Anker, Brezel, Bier, Baum, Fisch, Herz
+ */

@@ -1,0 +1,1095 @@
+{
+  "name": "Familie Grüber Dobble Set",
+  "order": 5,
+  "totalSymbols": 31,
+  "totalCards": 31,
+  "symbolsPerCard": 6,
+  "created": "2025-11-18T09:35:46.168Z",
+  "cards": [
+    {
+      "id": 1,
+      "symbols": [
+        {
+          "id": "nele",
+          "name": "Nele",
+          "color": "#45B7D1"
+        },
+        {
+          "id": "joerg",
+          "name": "Jörg",
+          "color": "#4ECDC4"
+        },
+        {
+          "id": "philipp",
+          "name": "Philipp",
+          "color": "#FFA07A"
+        },
+        {
+          "id": "thomas",
+          "name": "Thomas",
+          "color": "#F7DC6F"
+        },
+        {
+          "id": "ingrid",
+          "name": "Ingrid",
+          "color": "#FF6B6B"
+        },
+        {
+          "id": "britta",
+          "name": "Britta",
+          "color": "#98D8C8"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "symbols": [
+        {
+          "id": "star",
+          "name": "⭐",
+          "color": "#FFD700"
+        },
+        {
+          "id": "emma",
+          "name": "Emma",
+          "color": "#457B9D"
+        },
+        {
+          "id": "ida",
+          "name": "Ida",
+          "color": "#FB5607"
+        },
+        {
+          "id": "ingrid",
+          "name": "Ingrid",
+          "color": "#FF6B6B"
+        },
+        {
+          "id": "meike",
+          "name": "Meike",
+          "color": "#BB8FCE"
+        },
+        {
+          "id": "kristof",
+          "name": "Kristof",
+          "color": "#2A9D8F"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "symbols": [
+        {
+          "id": "hanna",
+          "name": "Hanna",
+          "color": "#F1FAEE"
+        },
+        {
+          "id": "broesel",
+          "name": "Brösel",
+          "color": "#FF006E"
+        },
+        {
+          "id": "lotte",
+          "name": "Lotte",
+          "color": "#E9C46A"
+        },
+        {
+          "id": "ingrid",
+          "name": "Ingrid",
+          "color": "#FF6B6B"
+        },
+        {
+          "id": "smile",
+          "name": "😊",
+          "color": "#FFC107"
+        },
+        {
+          "id": "soenke",
+          "name": "Sönke",
+          "color": "#85C1E2"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "symbols": [
+        {
+          "id": "party",
+          "name": "🎉",
+          "color": "#FF5722"
+        },
+        {
+          "id": "fiete",
+          "name": "Fiete",
+          "color": "#8338EC"
+        },
+        {
+          "id": "matti",
+          "name": "Matti",
+          "color": "#F4A261"
+        },
+        {
+          "id": "ingrid",
+          "name": "Ingrid",
+          "color": "#FF6B6B"
+        },
+        {
+          "id": "hendrik",
+          "name": "Hendrik",
+          "color": "#F8B739"
+        },
+        {
+          "id": "juna",
+          "name": "Juna",
+          "color": "#E63946"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "symbols": [
+        {
+          "id": "ingrid",
+          "name": "Ingrid",
+          "color": "#FF6B6B"
+        },
+        {
+          "id": "frido",
+          "name": "Frido",
+          "color": "#264653"
+        },
+        {
+          "id": "lasse",
+          "name": "Lasse",
+          "color": "#06FFA5"
+        },
+        {
+          "id": "cleo",
+          "name": "Cleo",
+          "color": "#3A86FF"
+        },
+        {
+          "id": "johanna",
+          "name": "Johanna",
+          "color": "#52B788"
+        },
+        {
+          "id": "tree",
+          "name": "🌲",
+          "color": "#4CAF50"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "symbols": [
+        {
+          "id": "heart",
+          "name": "❤️",
+          "color": "#FF1744"
+        },
+        {
+          "id": "home",
+          "name": "🏠",
+          "color": "#795548"
+        },
+        {
+          "id": "lina",
+          "name": "Lina",
+          "color": "#FFBE0B"
+        },
+        {
+          "id": "ingrid",
+          "name": "Ingrid",
+          "color": "#FF6B6B"
+        },
+        {
+          "id": "kerstin",
+          "name": "Kerstin",
+          "color": "#E76F51"
+        },
+        {
+          "id": "mika",
+          "name": "Mika",
+          "color": "#A8DADC"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "symbols": [
+        {
+          "id": "soenke",
+          "name": "Sönke",
+          "color": "#85C1E2"
+        },
+        {
+          "id": "joerg",
+          "name": "Jörg",
+          "color": "#4ECDC4"
+        },
+        {
+          "id": "meike",
+          "name": "Meike",
+          "color": "#BB8FCE"
+        },
+        {
+          "id": "kerstin",
+          "name": "Kerstin",
+          "color": "#E76F51"
+        },
+        {
+          "id": "johanna",
+          "name": "Johanna",
+          "color": "#52B788"
+        },
+        {
+          "id": "hendrik",
+          "name": "Hendrik",
+          "color": "#F8B739"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "symbols": [
+        {
+          "id": "lotte",
+          "name": "Lotte",
+          "color": "#E9C46A"
+        },
+        {
+          "id": "frido",
+          "name": "Frido",
+          "color": "#264653"
+        },
+        {
+          "id": "mika",
+          "name": "Mika",
+          "color": "#A8DADC"
+        },
+        {
+          "id": "matti",
+          "name": "Matti",
+          "color": "#F4A261"
+        },
+        {
+          "id": "joerg",
+          "name": "Jörg",
+          "color": "#4ECDC4"
+        },
+        {
+          "id": "kristof",
+          "name": "Kristof",
+          "color": "#2A9D8F"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "symbols": [
+        {
+          "id": "emma",
+          "name": "Emma",
+          "color": "#457B9D"
+        },
+        {
+          "id": "hanna",
+          "name": "Hanna",
+          "color": "#F1FAEE"
+        },
+        {
+          "id": "lasse",
+          "name": "Lasse",
+          "color": "#06FFA5"
+        },
+        {
+          "id": "joerg",
+          "name": "Jörg",
+          "color": "#4ECDC4"
+        },
+        {
+          "id": "juna",
+          "name": "Juna",
+          "color": "#E63946"
+        },
+        {
+          "id": "lina",
+          "name": "Lina",
+          "color": "#FFBE0B"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "symbols": [
+        {
+          "id": "broesel",
+          "name": "Brösel",
+          "color": "#FF006E"
+        },
+        {
+          "id": "cleo",
+          "name": "Cleo",
+          "color": "#3A86FF"
+        },
+        {
+          "id": "ida",
+          "name": "Ida",
+          "color": "#FB5607"
+        },
+        {
+          "id": "joerg",
+          "name": "Jörg",
+          "color": "#4ECDC4"
+        },
+        {
+          "id": "fiete",
+          "name": "Fiete",
+          "color": "#8338EC"
+        },
+        {
+          "id": "heart",
+          "name": "❤️",
+          "color": "#FF1744"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "symbols": [
+        {
+          "id": "tree",
+          "name": "🌲",
+          "color": "#4CAF50"
+        },
+        {
+          "id": "star",
+          "name": "⭐",
+          "color": "#FFD700"
+        },
+        {
+          "id": "smile",
+          "name": "😊",
+          "color": "#FFC107"
+        },
+        {
+          "id": "party",
+          "name": "🎉",
+          "color": "#FF5722"
+        },
+        {
+          "id": "joerg",
+          "name": "Jörg",
+          "color": "#4ECDC4"
+        },
+        {
+          "id": "home",
+          "name": "🏠",
+          "color": "#795548"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "symbols": [
+        {
+          "id": "lotte",
+          "name": "Lotte",
+          "color": "#E9C46A"
+        },
+        {
+          "id": "juna",
+          "name": "Juna",
+          "color": "#E63946"
+        },
+        {
+          "id": "meike",
+          "name": "Meike",
+          "color": "#BB8FCE"
+        },
+        {
+          "id": "cleo",
+          "name": "Cleo",
+          "color": "#3A86FF"
+        },
+        {
+          "id": "home",
+          "name": "🏠",
+          "color": "#795548"
+        },
+        {
+          "id": "nele",
+          "name": "Nele",
+          "color": "#45B7D1"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "symbols": [
+        {
+          "id": "fiete",
+          "name": "Fiete",
+          "color": "#8338EC"
+        },
+        {
+          "id": "hanna",
+          "name": "Hanna",
+          "color": "#F1FAEE"
+        },
+        {
+          "id": "kerstin",
+          "name": "Kerstin",
+          "color": "#E76F51"
+        },
+        {
+          "id": "tree",
+          "name": "🌲",
+          "color": "#4CAF50"
+        },
+        {
+          "id": "nele",
+          "name": "Nele",
+          "color": "#45B7D1"
+        },
+        {
+          "id": "kristof",
+          "name": "Kristof",
+          "color": "#2A9D8F"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "symbols": [
+        {
+          "id": "mika",
+          "name": "Mika",
+          "color": "#A8DADC"
+        },
+        {
+          "id": "emma",
+          "name": "Emma",
+          "color": "#457B9D"
+        },
+        {
+          "id": "party",
+          "name": "🎉",
+          "color": "#FF5722"
+        },
+        {
+          "id": "broesel",
+          "name": "Brösel",
+          "color": "#FF006E"
+        },
+        {
+          "id": "johanna",
+          "name": "Johanna",
+          "color": "#52B788"
+        },
+        {
+          "id": "nele",
+          "name": "Nele",
+          "color": "#45B7D1"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "symbols": [
+        {
+          "id": "ida",
+          "name": "Ida",
+          "color": "#FB5607"
+        },
+        {
+          "id": "lina",
+          "name": "Lina",
+          "color": "#FFBE0B"
+        },
+        {
+          "id": "smile",
+          "name": "😊",
+          "color": "#FFC107"
+        },
+        {
+          "id": "nele",
+          "name": "Nele",
+          "color": "#45B7D1"
+        },
+        {
+          "id": "hendrik",
+          "name": "Hendrik",
+          "color": "#F8B739"
+        },
+        {
+          "id": "frido",
+          "name": "Frido",
+          "color": "#264653"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "symbols": [
+        {
+          "id": "heart",
+          "name": "❤️",
+          "color": "#FF1744"
+        },
+        {
+          "id": "lasse",
+          "name": "Lasse",
+          "color": "#06FFA5"
+        },
+        {
+          "id": "star",
+          "name": "⭐",
+          "color": "#FFD700"
+        },
+        {
+          "id": "matti",
+          "name": "Matti",
+          "color": "#F4A261"
+        },
+        {
+          "id": "nele",
+          "name": "Nele",
+          "color": "#45B7D1"
+        },
+        {
+          "id": "soenke",
+          "name": "Sönke",
+          "color": "#85C1E2"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "symbols": [
+        {
+          "id": "party",
+          "name": "🎉",
+          "color": "#FF5722"
+        },
+        {
+          "id": "hanna",
+          "name": "Hanna",
+          "color": "#F1FAEE"
+        },
+        {
+          "id": "philipp",
+          "name": "Philipp",
+          "color": "#FFA07A"
+        },
+        {
+          "id": "frido",
+          "name": "Frido",
+          "color": "#264653"
+        },
+        {
+          "id": "heart",
+          "name": "❤️",
+          "color": "#FF1744"
+        },
+        {
+          "id": "meike",
+          "name": "Meike",
+          "color": "#BB8FCE"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "symbols": [
+        {
+          "id": "broesel",
+          "name": "Brösel",
+          "color": "#FF006E"
+        },
+        {
+          "id": "hendrik",
+          "name": "Hendrik",
+          "color": "#F8B739"
+        },
+        {
+          "id": "kristof",
+          "name": "Kristof",
+          "color": "#2A9D8F"
+        },
+        {
+          "id": "lasse",
+          "name": "Lasse",
+          "color": "#06FFA5"
+        },
+        {
+          "id": "home",
+          "name": "🏠",
+          "color": "#795548"
+        },
+        {
+          "id": "philipp",
+          "name": "Philipp",
+          "color": "#FFA07A"
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "symbols": [
+        {
+          "id": "smile",
+          "name": "😊",
+          "color": "#FFC107"
+        },
+        {
+          "id": "cleo",
+          "name": "Cleo",
+          "color": "#3A86FF"
+        },
+        {
+          "id": "emma",
+          "name": "Emma",
+          "color": "#457B9D"
+        },
+        {
+          "id": "matti",
+          "name": "Matti",
+          "color": "#F4A261"
+        },
+        {
+          "id": "kerstin",
+          "name": "Kerstin",
+          "color": "#E76F51"
+        },
+        {
+          "id": "philipp",
+          "name": "Philipp",
+          "color": "#FFA07A"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "symbols": [
+        {
+          "id": "juna",
+          "name": "Juna",
+          "color": "#E63946"
+        },
+        {
+          "id": "soenke",
+          "name": "Sönke",
+          "color": "#85C1E2"
+        },
+        {
+          "id": "mika",
+          "name": "Mika",
+          "color": "#A8DADC"
+        },
+        {
+          "id": "philipp",
+          "name": "Philipp",
+          "color": "#FFA07A"
+        },
+        {
+          "id": "tree",
+          "name": "🌲",
+          "color": "#4CAF50"
+        },
+        {
+          "id": "ida",
+          "name": "Ida",
+          "color": "#FB5607"
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "symbols": [
+        {
+          "id": "johanna",
+          "name": "Johanna",
+          "color": "#52B788"
+        },
+        {
+          "id": "lina",
+          "name": "Lina",
+          "color": "#FFBE0B"
+        },
+        {
+          "id": "star",
+          "name": "⭐",
+          "color": "#FFD700"
+        },
+        {
+          "id": "philipp",
+          "name": "Philipp",
+          "color": "#FFA07A"
+        },
+        {
+          "id": "fiete",
+          "name": "Fiete",
+          "color": "#8338EC"
+        },
+        {
+          "id": "lotte",
+          "name": "Lotte",
+          "color": "#E9C46A"
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "symbols": [
+        {
+          "id": "tree",
+          "name": "🌲",
+          "color": "#4CAF50"
+        },
+        {
+          "id": "britta",
+          "name": "Britta",
+          "color": "#98D8C8"
+        },
+        {
+          "id": "matti",
+          "name": "Matti",
+          "color": "#F4A261"
+        },
+        {
+          "id": "broesel",
+          "name": "Brösel",
+          "color": "#FF006E"
+        },
+        {
+          "id": "meike",
+          "name": "Meike",
+          "color": "#BB8FCE"
+        },
+        {
+          "id": "lina",
+          "name": "Lina",
+          "color": "#FFBE0B"
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "symbols": [
+        {
+          "id": "smile",
+          "name": "😊",
+          "color": "#FFC107"
+        },
+        {
+          "id": "juna",
+          "name": "Juna",
+          "color": "#E63946"
+        },
+        {
+          "id": "heart",
+          "name": "❤️",
+          "color": "#FF1744"
+        },
+        {
+          "id": "johanna",
+          "name": "Johanna",
+          "color": "#52B788"
+        },
+        {
+          "id": "britta",
+          "name": "Britta",
+          "color": "#98D8C8"
+        },
+        {
+          "id": "kristof",
+          "name": "Kristof",
+          "color": "#2A9D8F"
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "symbols": [
+        {
+          "id": "frido",
+          "name": "Frido",
+          "color": "#264653"
+        },
+        {
+          "id": "emma",
+          "name": "Emma",
+          "color": "#457B9D"
+        },
+        {
+          "id": "soenke",
+          "name": "Sönke",
+          "color": "#85C1E2"
+        },
+        {
+          "id": "britta",
+          "name": "Britta",
+          "color": "#98D8C8"
+        },
+        {
+          "id": "fiete",
+          "name": "Fiete",
+          "color": "#8338EC"
+        },
+        {
+          "id": "home",
+          "name": "🏠",
+          "color": "#795548"
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "symbols": [
+        {
+          "id": "lasse",
+          "name": "Lasse",
+          "color": "#06FFA5"
+        },
+        {
+          "id": "ida",
+          "name": "Ida",
+          "color": "#FB5607"
+        },
+        {
+          "id": "britta",
+          "name": "Britta",
+          "color": "#98D8C8"
+        },
+        {
+          "id": "party",
+          "name": "🎉",
+          "color": "#FF5722"
+        },
+        {
+          "id": "kerstin",
+          "name": "Kerstin",
+          "color": "#E76F51"
+        },
+        {
+          "id": "lotte",
+          "name": "Lotte",
+          "color": "#E9C46A"
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "symbols": [
+        {
+          "id": "cleo",
+          "name": "Cleo",
+          "color": "#3A86FF"
+        },
+        {
+          "id": "hendrik",
+          "name": "Hendrik",
+          "color": "#F8B739"
+        },
+        {
+          "id": "britta",
+          "name": "Britta",
+          "color": "#98D8C8"
+        },
+        {
+          "id": "hanna",
+          "name": "Hanna",
+          "color": "#F1FAEE"
+        },
+        {
+          "id": "mika",
+          "name": "Mika",
+          "color": "#A8DADC"
+        },
+        {
+          "id": "star",
+          "name": "⭐",
+          "color": "#FFD700"
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "symbols": [
+        {
+          "id": "smile",
+          "name": "😊",
+          "color": "#FFC107"
+        },
+        {
+          "id": "mika",
+          "name": "Mika",
+          "color": "#A8DADC"
+        },
+        {
+          "id": "lasse",
+          "name": "Lasse",
+          "color": "#06FFA5"
+        },
+        {
+          "id": "meike",
+          "name": "Meike",
+          "color": "#BB8FCE"
+        },
+        {
+          "id": "fiete",
+          "name": "Fiete",
+          "color": "#8338EC"
+        },
+        {
+          "id": "thomas",
+          "name": "Thomas",
+          "color": "#F7DC6F"
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "symbols": [
+        {
+          "id": "party",
+          "name": "🎉",
+          "color": "#FF5722"
+        },
+        {
+          "id": "cleo",
+          "name": "Cleo",
+          "color": "#3A86FF"
+        },
+        {
+          "id": "kristof",
+          "name": "Kristof",
+          "color": "#2A9D8F"
+        },
+        {
+          "id": "thomas",
+          "name": "Thomas",
+          "color": "#F7DC6F"
+        },
+        {
+          "id": "soenke",
+          "name": "Sönke",
+          "color": "#85C1E2"
+        },
+        {
+          "id": "lina",
+          "name": "Lina",
+          "color": "#FFBE0B"
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "symbols": [
+        {
+          "id": "tree",
+          "name": "🌲",
+          "color": "#4CAF50"
+        },
+        {
+          "id": "emma",
+          "name": "Emma",
+          "color": "#457B9D"
+        },
+        {
+          "id": "hendrik",
+          "name": "Hendrik",
+          "color": "#F8B739"
+        },
+        {
+          "id": "thomas",
+          "name": "Thomas",
+          "color": "#F7DC6F"
+        },
+        {
+          "id": "heart",
+          "name": "❤️",
+          "color": "#FF1744"
+        },
+        {
+          "id": "lotte",
+          "name": "Lotte",
+          "color": "#E9C46A"
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "symbols": [
+        {
+          "id": "johanna",
+          "name": "Johanna",
+          "color": "#52B788"
+        },
+        {
+          "id": "hanna",
+          "name": "Hanna",
+          "color": "#F1FAEE"
+        },
+        {
+          "id": "ida",
+          "name": "Ida",
+          "color": "#FB5607"
+        },
+        {
+          "id": "home",
+          "name": "🏠",
+          "color": "#795548"
+        },
+        {
+          "id": "thomas",
+          "name": "Thomas",
+          "color": "#F7DC6F"
+        },
+        {
+          "id": "matti",
+          "name": "Matti",
+          "color": "#F4A261"
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "symbols": [
+        {
+          "id": "star",
+          "name": "⭐",
+          "color": "#FFD700"
+        },
+        {
+          "id": "frido",
+          "name": "Frido",
+          "color": "#264653"
+        },
+        {
+          "id": "thomas",
+          "name": "Thomas",
+          "color": "#F7DC6F"
+        },
+        {
+          "id": "broesel",
+          "name": "Brösel",
+          "color": "#FF006E"
+        },
+        {
+          "id": "kerstin",
+          "name": "Kerstin",
+          "color": "#E76F51"
+        },
+        {
+          "id": "juna",
+          "name": "Juna",
+          "color": "#E63946"
+        }
+      ]
+    }
+  ]
+}

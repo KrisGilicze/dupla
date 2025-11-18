@@ -80,7 +80,20 @@ export function Card({
                             color: symbol.color
                         }}
                     >
-                        <Icon size={48} />
+                        {symbol.imageUrl ? (
+                            <img
+                                src={symbol.imageUrl}
+                                alt={symbol.name}
+                                style={{
+                                    width: '48px',
+                                    height: '48px',
+                                    objectFit: 'cover',
+                                    borderRadius: '50%'
+                                }}
+                            />
+                        ) : (
+                            <Icon size={48} />
+                        )}
                     </button>
                 );
             })}

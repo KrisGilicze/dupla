@@ -3,12 +3,13 @@ import {FaCircle, FaStar, FaHeart} from 'react-icons/fa';
 import {FaSquare, FaPlay as FaTriangle} from 'react-icons/fa6';
 import {TbPentagon, TbHexagon} from 'react-icons/tb';
 
-// Symbol-Definitionen mit Icon-Komponenten
+// Symbol-Definitionen mit Icon-Komponenten oder Bild-URLs
 export interface SymbolDefinition {
     id: string;
     name: string;
     icon: IconType;
     color: string;
+    imageUrl?: string; // Optional: URL für hochgeladene Bilder
 }
 
 export const SYMBOLS: Record<string, SymbolDefinition> = {
