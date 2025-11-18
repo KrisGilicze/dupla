@@ -34,11 +34,12 @@ Erstelle dein eigenes Dobble-Spiel mit persönlichen Fotos:
 -   📊 **Echtzeit-Feedback** über gültige Symbolanzahl
 
 **Unterstützte Kartengrößen:**
-- 7 Symbole → 7 Karten mit je 3 Symbolen (n=2)
-- 13 Symbole → 13 Karten mit je 4 Symbolen (n=3)
-- 21 Symbole → 21 Karten mit je 5 Symbolen (n=4)
-- 31 Symbole → 31 Karten mit je 6 Symbolen (n=5)
-- 57 Symbole → 57 Karten mit je 8 Symbolen (n=7)
+
+-   7 Symbole → 7 Karten mit je 3 Symbolen (n=2)
+-   13 Symbole → 13 Karten mit je 4 Symbolen (n=3)
+-   21 Symbole → 21 Karten mit je 5 Symbolen (n=4)
+-   31 Symbole → 31 Karten mit je 6 Symbolen (n=5)
+-   57 Symbole → 57 Karten mit je 8 Symbolen (n=7)
 
 ### Spielregeln
 
@@ -53,12 +54,15 @@ Erstelle dein eigenes Dobble-Spiel mit persönlichen Fotos:
 Das Spiel nutzt **projektive Ebenen** mit mathematisch garantierten Eigenschaften:
 
 ### Standard-Spiel (n=2 - Fano-Ebene)
+
 -   **7 Symbole** insgesamt
 -   **7 Karten** mit je **3 Symbolen**
 -   Jede Kartenpaarung hat **genau 1 gemeinsames Symbol**
 
 ### Allgemeine Konstruktion
+
 Für projektive Ebenen der Ordnung **n** gilt:
+
 -   Anzahl Symbole: `n² + n + 1`
 -   Anzahl Karten: `n² + n + 1`
 -   Symbole pro Karte: `n + 1`
@@ -67,8 +71,9 @@ Für projektive Ebenen der Ordnung **n** gilt:
 **Implementierte Ordnungen:** n ∈ {2, 3, 4, 5, 7}
 
 Die Kartengenerierung nutzt:
-- **Fano-Ebene** für n=2 (klassische Konstruktion)
-- **Galois-Field-Arithmetik** für n=3,4,5,7 (Primzahlpotenzen)
+
+-   **Fano-Ebene** für n=2 (klassische Konstruktion)
+-   **Galois-Field-Arithmetik** für n=3,4,5,7 (Primzahlpotenzen)
 
 > **Hinweis:** n=6 ist mathematisch nicht konstruierbar (Bruck-Ryser-Chowla-Theorem)
 
@@ -108,11 +113,11 @@ Das Projekt verwendet GitHub Actions für automatisches Deployment auf GitHub Pa
 
 ## 🔮 Roadmap / Geplante Features
 
-- [ ] **Edit Cards Layout** - UI zum Anpassen des Karten-Layouts (Symbol-Rotation, Position, Größe), Drag & Drop zum Neuanordnen, Template-Auswahl (kreisförmig, zufällig, grid)
-- [ ] **Custom Cropping & Bild-Bearbeitung** - Crop-Tool für hochgeladene Bilder, Zoom, Filter, Helligkeit/Kontrast-Anpassung
-- [ ] **LocalStorage Persistence** - Speicherung von Custom-Kartensets im Browser
-- [ ] **Multiplayer Mode** - Zwei Spieler auf einem Bildschirm
-- [ ] **Schwierigkeitsstufen** - Verschiedene Zeit-Limits und Punktesysteme
+-   [ ] **Edit Cards Layout** - UI zum Anpassen des Karten-Layouts (Symbol-Rotation, Position, Größe), Drag & Drop zum Neuanordnen, Template-Auswahl (kreisförmig, zufällig, grid)
+-   [ ] **Custom Cropping & Bild-Bearbeitung** - Crop-Tool für hochgeladene Bilder, Zoom, Filter, Helligkeit/Kontrast-Anpassung
+-   [ ] **LocalStorage Persistence** - Speicherung von Custom-Kartensets im Browser
+-   [ ] **Multiplayer Mode** - Zwei Spieler auf einem Bildschirm
+-   [ ] **Schwierigkeitsstufen** - Verschiedene Zeit-Limits und Punktesysteme
 
 ## 📊 Projekt-Struktur
 
@@ -141,9 +146,10 @@ npm test
 ```
 
 **Test-Coverage:**
-- ✅ Projektive Ebenen Berechnungen (48 Tests)
-- ✅ Kartengenerierung & Validation (19 Tests)
-- ✅ Familie Grüber Kartensatz (31 Symbole, 465 Paarvalidierungen)
+
+-   ✅ Projektive Ebenen Berechnungen (48 Tests)
+-   ✅ Kartengenerierung & Validation (19 Tests)
+-   ✅ Familie Grüber Kartensatz (31 Symbole, 465 Paarvalidierungen)
 
 ## 📄 Lizenz
 
