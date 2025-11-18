@@ -1,6 +1,10 @@
 import {useRef} from 'react';
 import type {Card, SymbolDefinition} from '../types';
-import {exportAsJSON, openPrintPreview, importFromJSON} from '../exportCards';
+import {
+    exportAsJSON,
+    openPrintPreview,
+    importFromJSON
+} from '../lib/exportCards';
 
 interface CardExportProps {
     cards: Card[];

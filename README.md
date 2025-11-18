@@ -123,19 +123,33 @@ Das Projekt verwendet GitHub Actions für automatisches Deployment auf GitHub Pa
 
 ```
 src/
-├── components/          # React-Komponenten
-│   ├── Card.tsx        # Karten-Darstellung
-│   ├── CardGallery.tsx # Karten-Browser
-│   ├── CardExport.tsx  # Export/Import UI
-│   ├── ImageUpload.tsx # Bild-Upload
-│   └── SymbolCountFeedback.tsx
-├── projectivePlane.ts  # Mathematik-Utilities
-├── utils.ts            # Kartengenerierung
-├── imageConverter.ts   # Bild → Symbol Konverter
-├── exportCards.ts      # Export/Import Logik
-├── types.ts            # TypeScript Definitionen
-└── App.tsx             # Haupt-App
+├── components/             # React-Komponenten
+├── lib/                    # Fachlogik & Daten (tree-shakebar)
+│   ├── constants.ts        # Layout-Parameter
+│   ├── data.ts             # Vorgefertigte Kartenstapel
+│   ├── dobble.ts           # Karten-Generator & Validator
+│   ├── exportCards.ts      # Export/Import Logik
+│   ├── familyCards.ts      # Familie-Grüber-Kartensatz
+│   ├── familySymbols.ts    # Symboldefinitionen
+│   ├── imageConverter.ts   # Bilder → Symbole
+│   ├── projectivePlane.ts  # Mathematische Utilities
+│   ├── showFamilyCards.ts  # CLI zum Anzeigen/Exportieren
+│   └── sounds.ts           # Soundeffekte
+├── utils/
+│   └── layoutUtils.ts      # Chaotisches Kartenlayout
+├── tools/
+│   └── cardLayoutDiagnostics.ts # Analyse-Skript (TSX)
+├── __tests__/              # Vitest Suites
+│   ├── dobbleValidation.test.ts
+│   └── projectivePlane.test.ts
+├── types.ts                # TypeScript Definitionen
+├── App.tsx
+└── main.tsx
 ```
+
+### 🔧 Analyse-Skripte
+
+-   `npx tsx src/tools/cardLayoutDiagnostics.ts` – detaillierte Kollisionsanalyse für das chaotische Kartenlayout
 
 ## 🧪 Testing
 

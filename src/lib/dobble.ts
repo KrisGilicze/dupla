@@ -1,4 +1,4 @@
-import type {Card, SymbolDefinition} from './types';
+import type {Card, SymbolDefinition} from '../types';
 
 /**
  * Mischt ein Array zufällig (Fisher-Yates Shuffle).

@@ -1,4 +1,4 @@
-import {generateDobbleCards, validateDobbleCards} from './utils';
+import {generateDobbleCards, validateDobbleCards} from './dobble';
 import {FAMILY_SYMBOLS} from './familySymbols';
 
 /**

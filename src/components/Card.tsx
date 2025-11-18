@@ -1,5 +1,6 @@
-import {useState} from 'react';
+import {useState, useMemo} from 'react';
 import type {Card as CardType, Symbol} from '../types';
+import {generateRandomLayout} from '../utils/layoutUtils';
 
 interface CardProps {
     card: CardType;
@@ -7,6 +8,7 @@ interface CardProps {
     flashColor?: 'green' | 'red' | null;
     shake?: boolean;
     flip?: boolean;
+    randomizeLayout?: boolean;
 }
 
 export function Card({
@@ -14,9 +16,16 @@ export function Card({
     onSymbolClick,
     flashColor,
     shake,
-    flip
+    flip,
+    randomizeLayout = false
 }: CardProps) {
     const [hoveredSymbol, setHoveredSymbol] = useState<string | null>(null);
+
+    // Generate random layout once per card using card.id as seed
+    const randomLayout = useMemo(() => {
+        if (!randomizeLayout) return null;
+        return generateRandomLayout(card.symbols.length, card.id);
+    }, [card.id, card.symbols.length, randomizeLayout]);
 
     const getBackgroundColor = () => {
         if (flashColor === 'green') return 'rgba(34, 197, 94, 0.5)';
@@ -47,11 +56,26 @@ export function Card({
         >
             {card.symbols.map((symbol, index) => {
                 const Icon = symbol.icon;
-                const angle = (index * 360) / card.symbols.length;
-                const radius = 80;
-                const x = Math.cos((angle * Math.PI) / 180) * radius;
-                const y = Math.sin((angle * Math.PI) / 180) * radius;
                 const isHovered = hoveredSymbol === `${card.id}-${symbol.id}`;
+
+                let x, y, symbolRotation, symbolScale;
+
+                if (randomizeLayout && randomLayout) {
+                    // Use random layout
+                    const layout = randomLayout[index];
+                    x = layout.x;
+                    y = layout.y;
+                    symbolRotation = layout.rotation;
+                    symbolScale = layout.scale;
+                } else {
+                    // Use circular layout
+                    const angle = (index * 360) / card.symbols.length;
+                    const radius = 80;
+                    x = Math.cos((angle * Math.PI) / 180) * radius;
+                    y = Math.sin((angle * Math.PI) / 180) * radius;
+                    symbolRotation = 0;
+                    symbolScale = 1;
+                }
 
                 return (
                     <button
@@ -66,8 +90,10 @@ export function Card({
                             left: `calc(50% + ${x}px)`,
                             top: `calc(50% + ${y}px)`,
                             transform: isHovered
-                                ? 'translate(-50%, -50%) scale(1.2)'
-                                : 'translate(-50%, -50%)',
+                                ? `translate(-50%, -50%) scale(${
+                                      symbolScale * 1.2
+                                  }) rotate(${symbolRotation}deg)`
+                                : `translate(-50%, -50%) scale(${symbolScale}) rotate(${symbolRotation}deg)`,
                             background: isHovered
                                 ? 'rgba(100, 108, 255, 0.2)'
                                 : 'none',

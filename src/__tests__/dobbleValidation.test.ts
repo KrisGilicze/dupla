@@ -1,7 +1,7 @@
 import {describe, it, expect} from 'vitest';
-import {generateDobbleCards, validateDobbleCards} from './utils';
-import {SYMBOLS} from './types';
-import {FAMILY_SYMBOLS} from './familySymbols';
+import {generateDobbleCards, validateDobbleCards} from '../lib/dobble';
+import {SYMBOLS} from '../types';
+import {FAMILY_SYMBOLS} from '../lib/familySymbols';
 
 describe('Dobble Card Generation and Validation', () => {
     describe('validateDobbleCards', () => {

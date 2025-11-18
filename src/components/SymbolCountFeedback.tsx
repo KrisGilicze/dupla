@@ -1,4 +1,4 @@
-import {findBestN} from '../projectivePlane';
+import {findBestN} from '../lib/projectivePlane';
 
 interface SymbolCountFeedbackProps {
     count: number;

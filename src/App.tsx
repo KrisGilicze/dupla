@@ -1,7 +1,7 @@
 import './App.css';
 import {useState, useEffect} from 'react';
 import type {Symbol, Card as CardType, SymbolDefinition} from './types';
-import {allCards} from './data';
+import {allCards} from './lib/data';
 import {Card} from './components/Card';
 import {ImageUpload} from './components/ImageUpload';
 import type {UploadedImage} from './components/ImageUpload';
@@ -13,10 +13,10 @@ import {
     getRandomCardPair,
     getRandomCardExcept,
     generateDobbleCards
-} from './utils';
-import {imagesToSymbolSet} from './imageConverter';
-import {findBestN} from './projectivePlane';
-import {soundEffects} from './sounds';
+} from './lib/dobble';
+import {imagesToSymbolSet} from './lib/imageConverter';
+import {findBestN} from './lib/projectivePlane';
+import {soundEffects} from './lib/sounds';
 
 interface LeaderboardEntry {
     name: string;
@@ -29,6 +29,7 @@ function App() {
     const [score, setScore] = useState(0);
     const [highScore, setHighScore] = useState(0);
     const [soundEnabled, setSoundEnabled] = useState(true);
+    const [randomizeLayout, setRandomizeLayout] = useState(false);
     const [playerName, setPlayerName] = useState('Guest');
     const [timeLeft, setTimeLeft] = useState(20);
     const [activeTab, setActiveTab] = useState<'custom' | 'demo'>('custom');
@@ -394,11 +395,11 @@ function App() {
                 >
                     {/* Intro Explanation */}
                     <div className="intro-section">
-                        <h2>🎯 Was ist Dobble?</h2>
+                        <h2>🎯 Was ist Dupla?</h2>
                         <p>
-                            <strong>Dobble</strong> (auch bekannt als Spot It!)
-                            ist ein Kartenspiel, bei dem jede Karte mehrere
-                            Symbole zeigt. Das Besondere:
+                            <strong>Dupla</strong> (auch bekannt als Dobble oder
+                            Spot It!) ist ein Kartenspiel, bei dem jede Karte
+                            mehrere Symbole zeigt. Das Besondere:
                             <strong>
                                 {' '}
                                 Zwischen zwei beliebigen Karten gibt es immer
@@ -420,7 +421,7 @@ function App() {
                                     color: '#aaa'
                                 }}
                             >
-                                Dobble basiert auf mathematischen Prinzipien. Du
+                                Dupla basiert auf mathematischen Prinzipien. Du
                                 kannst <strong>nicht beliebig viele</strong>{' '}
                                 Symbole hochladen. Die Anzahl muss einer dieser
                                 Formeln entsprechen:
@@ -474,7 +475,7 @@ function App() {
                             marginTop: '2rem'
                         }}
                     >
-                        📸 Eigenes Dobble-Spiel erstellen
+                        📸 Eigenes Dupla-Spiel erstellen
                     </h2>
 
                     <ImageUpload onImagesChange={handleImagesChange} />
@@ -556,7 +557,10 @@ function App() {
                                 </button>
                             </div>
 
-                            <CardGallery cards={customCards} />
+                            <CardGallery
+                                cards={customCards}
+                                randomizeLayout={randomizeLayout}
+                            />
                         </>
                     )}
                 </div>
@@ -642,6 +646,30 @@ function App() {
                                     }}
                                 />
                                 <span>Sound-Effekte aktivieren</span>
+                            </label>
+                            <label
+                                style={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: '0.5rem',
+                                    cursor: 'pointer'
+                                }}
+                            >
+                                <input
+                                    type="checkbox"
+                                    checked={randomizeLayout}
+                                    onChange={(e) =>
+                                        setRandomizeLayout(e.target.checked)
+                                    }
+                                    style={{
+                                        width: '20px',
+                                        height: '20px',
+                                        cursor: 'pointer'
+                                    }}
+                                />
+                                <span>
+                                    Chaotisches Layout (erschwert das Spiel)
+                                </span>
                             </label>
                         </div>
                     </div>
@@ -795,7 +823,10 @@ function App() {
                                     Deine Karte
                                 </h3>
                             </div>
-                            <Card card={ownCard} />
+                            <Card
+                                card={ownCard}
+                                randomizeLayout={randomizeLayout}
+                            />
                         </section>
 
                         {/* Zielkarte */}
@@ -835,6 +866,7 @@ function App() {
                                 flashColor={flashColor}
                                 shake={shake}
                                 flip={flip}
+                                randomizeLayout={randomizeLayout}
                             />
                         </section>
                     </main>
@@ -1020,31 +1052,3 @@ function App() {
 }
 
 export default App;
-
-/* Copyright (c) 2025 Kristof Gilicze */
-
-/** Docs:
- * n=1: 3 Symbole (3 Karten, 2 Symbole/Karte)
- * n=2: 7 Symbole (7 Karten, 3 Symbole/Karte)
- * n=3: 13 Symbole (13 Karten, 4 Symbole/Karte)
- * n=4: 21 Symbole (21 Karten, 5 Symbole/Karte)
- * n=5: 31 Symbole (31 Karten, 6 Symbole/Karte)
- * n=7: 57 Symbole (57 Karten, 8 Symbole/Karte)
- */
-
-/**
- * ##### Symbole Grüber
- * Ingrid, Jörg,         +1
- * Nele, Philipp,        +3
- * Britta, Thomas,       +5
- * Meike, Sönke,         +2
- * Hendrik, Johanna,     +1
- * Kerstin, Kristof,     +1
- * = 12     |           +13
- * === 25
- */
-
-/**
- * Ingrid, Jörg, Nele, Philipp, Britta, Thomas, Meike, Sönke, Hendrik, Johanna, Kerstin, Kristof, Lotte, Matti, Frido, Mika, Emma, Hanna, Juna, Lasse, Lina, Ida, Brösel, Fiete, Cleo
- * Anker, Brezel, Bier, Baum, Fisch, Herz
- */

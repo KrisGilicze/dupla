@@ -9,7 +9,7 @@ import {
     getProjectivePlaneStats,
     getAllProjectivePlaneStats,
     SUPPORTED_ORDERS
-} from './projectivePlane';
+} from '../lib/projectivePlane';
 
 describe('projectivePlane utils', () => {
     describe('calculateSymbolCount', () => {

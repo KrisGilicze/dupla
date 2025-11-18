@@ -1,4 +1,4 @@
-import type {SymbolDefinition} from './types';
+import type {SymbolDefinition} from '../types';
 import {FaCircle} from 'react-icons/fa';
 
 /**

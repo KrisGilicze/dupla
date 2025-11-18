@@ -25,5 +25,5 @@
         "noUncheckedSideEffectImports": true
     },
     "include": ["src"],
-    "exclude": ["src/showFamilyCards.ts"]
+    "exclude": ["src/lib/showFamilyCards.ts"]
 }

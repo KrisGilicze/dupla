@@ -1,4 +1,4 @@
-import type {Card, SymbolDefinition} from './types';
+import type {Card, SymbolDefinition} from '../types';
 import type {IconType} from 'react-icons';
 
 /**

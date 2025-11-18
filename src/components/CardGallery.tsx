@@ -4,9 +4,13 @@ import type {Card as CardType} from '../types';
 
 interface CardGalleryProps {
     cards: CardType[];
+    randomizeLayout?: boolean;
 }
 
-export function CardGallery({cards}: CardGalleryProps) {
+export function CardGallery({
+    cards,
+    randomizeLayout = false
+}: CardGalleryProps) {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     if (cards.length === 0) {
@@ -71,7 +75,10 @@ export function CardGallery({cards}: CardGalleryProps) {
                     ← Zurück
                 </button>
 
-                <Card card={cards[currentIndex]} />
+                <Card
+                    card={cards[currentIndex]}
+                    randomizeLayout={randomizeLayout}
+                />
 
                 <button
                     onClick={handleNext}

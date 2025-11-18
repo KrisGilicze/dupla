@@ -1,6 +1,6 @@
-import type {Card} from './types';
-import {SYMBOLS} from './types';
-import {generateDobbleCards} from './utils';
+import type {Card} from '../types';
+import {SYMBOLS} from '../types';
+import {generateDobbleCards} from './dobble';
 
 // Generiere alle gültigen Dobble-Karten aus der Symbolmenge
 export const allCards: Card[] = generateDobbleCards(SYMBOLS);

@@ -1,6 +1,6 @@
-import type {SymbolDefinition} from './types';
+import type {SymbolDefinition} from '../types';
 import type {IconType} from 'react-icons';
-import type {UploadedImage} from './components/ImageUpload';
+import type {UploadedImage} from '../components/ImageUpload';
 
 /**
  * Konvertiert hochgeladene Bilder in SymbolDefinition-Objekte
