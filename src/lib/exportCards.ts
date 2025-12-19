@@ -1,5 +1,7 @@
 import type {Card, SymbolDefinition} from '../types';
 import type {IconType} from 'react-icons';
+import {generateRandomLayout} from '../utils/layoutUtils';
+import {CARD_RADIUS} from './constants';
 
 /**
  * Export-Format für Kartensätze
@@ -159,6 +161,7 @@ export function openPrintPreview(cards: Card[]): void {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #242424;
         }
         
         .card-page {
@@ -179,10 +182,10 @@ export function openPrintPreview(cards: Card[]): void {
             width: 15cm;
             height: 15cm;
             border-radius: 50%;
-            border: 4px solid #000;
-            background-color: #fff;
+            border: 4px solid #646cff;
+            background-color: #1a1a1a;
             position: relative;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
         }
         
         .symbol {
@@ -190,29 +193,51 @@ export function openPrintPreview(cards: Card[]): void {
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 14px;
-            font-weight: bold;
-            padding: 8px;
         }
         
         .symbol img {
-            width: 60px;
-            height: 60px;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
             border-radius: 50%;
-            border: 2px solid #000;
+        }
+        
+        .symbol svg {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .symbol-text {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            font-weight: bold;
+            text-align: center;
+            line-height: 1.1;
+            overflow: hidden;
         }
         
         .card-info {
             text-align: center;
             margin-top: 1cm;
             font-size: 12px;
-            color: #666;
+            color: #888;
         }
         
         @media print {
             .no-print {
                 display: none;
+            }
+            body {
+                background-color: white;
+            }
+            .card {
+                background-color: #1a1a1a;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
             }
         }
         
@@ -240,32 +265,39 @@ export function openPrintPreview(cards: Card[]): void {
     <button class="print-button no-print" onclick="window.print()">🖨️ Drucken</button>
     
     ${cards
-        .map(
-            (card, index) => `
+        .map((card, index) => {
+            // Generate the same random layout as in the app
+            const layout = generateRandomLayout(card.symbols.length, card.id);
+            // Scale factor: 15cm card = ~567px, app card = 300px (CARD_RADIUS * 2)
+            const printCardSize = 567; // ~15cm in pixels at 96dpi
+            const scaleFactor = printCardSize / (CARD_RADIUS * 2);
+            
+            return `
         <div class="card-page">
             <div>
                 <div class="card">
                     ${card.symbols
                         .map((symbol, symIndex) => {
-                            const angle =
-                                (symIndex * 360) / card.symbols.length;
-                            const radius = 250; // in px for 15cm card
-                            const x =
-                                Math.cos((angle * Math.PI) / 180) * radius;
-                            const y =
-                                Math.sin((angle * Math.PI) / 180) * radius;
+                            const symLayout = layout[symIndex];
+                            // Scale positions and sizes for print
+                            const x = symLayout.x * scaleFactor;
+                            const y = symLayout.y * scaleFactor;
+                            const baseSize = 48; // BASE_SYMBOL_SIZE
+                            const size = baseSize * symLayout.scale * scaleFactor;
 
                             return `
                         <div class="symbol" style="
                             left: calc(50% + ${x}px);
                             top: calc(50% + ${y}px);
-                            transform: translate(-50%, -50%);
+                            width: ${size}px;
+                            height: ${size}px;
+                            transform: translate(-50%, -50%) rotate(${symLayout.rotation}deg);
                             color: ${symbol.color};
                         ">
                             ${
                                 symbol.imageUrl
                                     ? `<img src="${symbol.imageUrl}" alt="${symbol.name}" />`
-                                    : `<span style="font-size: 48px;">●</span>`
+                                    : `<div class="symbol-text" style="background-color: ${symbol.color}; color: white; font-size: ${Math.max(size * 0.25, 10)}px;">${symbol.name}</div>`
                             }
                         </div>
                     `;
@@ -277,8 +309,8 @@ export function openPrintPreview(cards: Card[]): void {
                 </div>
             </div>
         </div>
-    `
-        )
+    `;
+        })
         .join('')}
 </body>
 </html>
